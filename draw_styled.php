@@ -1,6 +1,6 @@
 <?php
 
-// $Revision: 1933 $ $Date:: 2015-06-21 #$ $Author: serge $
+// $Revision: 1946 $ $Date:: 2015-06-23 #$ $Author: serge $
 
 function get_div( $class, $id, $str )
 {
@@ -97,9 +97,9 @@ function draw_styled_span( $str, $style )
     echo get_styled_span( $str, $style );
 }
 
-function get_html_label( $str )
+function get_html_label( $str, $name=NULL, $id_style=NULL )
 {
-    return '<label>' . $str . '</label>' . "\n";
+    return '<label' . ( $name ? " name=\"$name\"" : "" ) . ( $id_style ? " id=\"$id_style\"" : "" ) . '>' .$str . '</label>' . "\n";
 }
 
 
