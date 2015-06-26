@@ -1,6 +1,6 @@
 <?php
 
-// $Revision: 1946 $ $Date:: 2015-06-23 #$ $Author: serge $
+// $Revision: 1972 $ $Date:: 2015-06-25 #$ $Author: serge $
 
 function get_div( $class, $id, $str )
 {
@@ -97,9 +97,39 @@ function draw_styled_span( $str, $style )
     echo get_styled_span( $str, $style );
 }
 
-function get_html_label( $str, $name=NULL, $id_style=NULL )
+function get_html_label( $str, $name=NULL, $id=NULL, $for_elem=NULL )
 {
-    return '<label' . ( $name ? " name=\"$name\"" : "" ) . ( $id_style ? " id=\"$id_style\"" : "" ) . '>' .$str . '</label>' . "\n";
+    return '<label' . ( $name ? " name=\"$name\"" : "" ) . ( $id ? " id=\"$id\"" : "" ) . ( $for_elem ? " for=\"$for_elem\"" : "" ) . '>' .$str . '</label>' . "\n";
+}
+
+function get_html_input_text( $name=NULL, $id=NULL, $value=NULL )
+{
+    return '<input' . ( $name ? " name=\"$name\"" : "" ) . ( $id ? " id=\"$id\"" : "" ) . ( $value ? " value=\"$value\"" : "" ) . '/>' . "\n";
+}
+
+function get_html_form( $method, $action=NULL, $body=NULL )
+{
+    return '<form method="' . $method . '" action="' . $action . '">' . "\n" . $body . '</form>' . "\n";
+}
+
+function get_html_select( $name, $values, $selected )
+{
+    $res = '<select name="' . $name . '">';
+
+    $i = 0;
+
+    foreach( $values as $x )
+    {
+        $selected_text = ($i == $selected) ? ' selected="selected"' : '';
+
+        $res = $res . '<option value="'. $x . '"' . $selected_text . '>'. $x .'</option>';
+
+        $i++;
+    }
+
+    $res = $res . '</select>';
+
+    return $res;
 }
 
 
