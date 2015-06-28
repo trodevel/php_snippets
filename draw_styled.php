@@ -1,19 +1,29 @@
 <?php
 
-// $Revision: 1972 $ $Date:: 2015-06-25 #$ $Author: serge $
+/*
 
-function get_div( $class, $id, $str )
-{
-    $res = '<div';
+Snippets to generate nested DIVs.
 
-    if( $class != NULL )
-        $res = $res .' class="' . $class .'"';
-    if( $id != NULL )
-        $res = $res .' id="' . $id .'"';
-    $res = $res . ">\n". $str . "\n</div>\n";
+Copyright (C) 2015 Sergey Kolevatov
 
-    return $res;
-}
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+// $Revision: 2003 $ $Date:: 2015-06-28 #$ $Author: serge $
+
+require 'html_elems.php';      // get_div()
 
 function get_styled_div( $str, $class=NULL, $id=NULL )
 {
@@ -96,42 +106,6 @@ function draw_styled_span( $str, $style )
 {
     echo get_styled_span( $str, $style );
 }
-
-function get_html_label( $str, $name=NULL, $id=NULL, $for_elem=NULL )
-{
-    return '<label' . ( $name ? " name=\"$name\"" : "" ) . ( $id ? " id=\"$id\"" : "" ) . ( $for_elem ? " for=\"$for_elem\"" : "" ) . '>' .$str . '</label>' . "\n";
-}
-
-function get_html_input_text( $name=NULL, $id=NULL, $value=NULL )
-{
-    return '<input' . ( $name ? " name=\"$name\"" : "" ) . ( $id ? " id=\"$id\"" : "" ) . ( $value ? " value=\"$value\"" : "" ) . '/>' . "\n";
-}
-
-function get_html_form( $method, $action=NULL, $body=NULL )
-{
-    return '<form method="' . $method . '" action="' . $action . '">' . "\n" . $body . '</form>' . "\n";
-}
-
-function get_html_select( $name, $values, $selected )
-{
-    $res = '<select name="' . $name . '">';
-
-    $i = 0;
-
-    foreach( $values as $x )
-    {
-        $selected_text = ($i == $selected) ? ' selected="selected"' : '';
-
-        $res = $res . '<option value="'. $x . '"' . $selected_text . '>'. $x .'</option>';
-
-        $i++;
-    }
-
-    $res = $res . '</select>';
-
-    return $res;
-}
-
 
 ?>
 
