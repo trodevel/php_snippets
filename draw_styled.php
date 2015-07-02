@@ -21,13 +21,13 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2003 $ $Date:: 2015-06-28 #$ $Author: serge $
+// $Revision: 2048 $ $Date:: 2015-07-01 #$ $Author: serge $
 
 require 'html_elems.php';      // get_div()
 
 function get_styled_div( $str, $class=NULL, $id=NULL )
 {
-    return get_div( $class, $id, $str );
+    return ( $str ) ? get_div( $class, $id, $str ) : "";
 }
 
 function get_styled_span( $str, $style )
@@ -68,6 +68,35 @@ function get_div_div_container( $class_outer, $id_outer, $class_inner, $id_inner
 
     return $res;
 }
+
+function get_div_div( $class_outer, $id_outer,
+    $c1, $i1, $el1,
+    $c2=NULL, $i2=NULL, $el2=NULL,
+    $c3=NULL, $i3=NULL, $el3=NULL,
+    $c4=NULL, $i4=NULL, $el4=NULL,
+    $c5=NULL, $i5=NULL, $el5=NULL,
+    $c6=NULL, $i6=NULL, $el6=NULL,
+    $c7=NULL, $i7=NULL, $el7=NULL,
+    $c8=NULL, $i8=NULL, $el8=NULL,
+    $c9=NULL, $i9=NULL, $el9=NULL )
+{
+    $body = "";
+
+    $body .= get_styled_div( $el1, $c1, $i1 );
+    $body .= get_styled_div( $el2, $c2, $i2 );
+    $body .= get_styled_div( $el3, $c3, $i3 );
+    $body .= get_styled_div( $el4, $c4, $i4 );
+    $body .= get_styled_div( $el5, $c5, $i5 );
+    $body .= get_styled_div( $el6, $c6, $i6 );
+    $body .= get_styled_div( $el7, $c7, $i7 );
+    $body .= get_styled_div( $el8, $c8, $i8 );
+    $body .= get_styled_div( $el9, $c9, $i9 );
+
+    $res = get_styled_div( $body, $class_outer, $id_outer );
+
+    return $res;
+}
+
 
 function get_div_vertical( $id_outer, $id_inner1, $id_inner2, $el1=NULL, $el2=NULL, $el3=NULL, $el4=NULL, $el5=NULL, $el6=NULL )
 {

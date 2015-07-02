@@ -21,20 +21,30 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2004 $ $Date:: 2015-06-28 #$ $Author: serge $
+// $Revision: 2033 $ $Date:: 2015-06-30 #$ $Author: serge $
 
-function get_html_standards( $name=NULL, $class=NULL, $id=NULL )
+function __get_html_opt_value( $key, $value=NULL )
 {
     $res = '';
 
-    if( $name )
-        $res = $res . " name=\"$name\"";
+    if( $value )
+        $res = $res . " $key=\"$value\"";
 
-    if( $class )
-        $res = $res . " class=\"$class\"";
+    return $res;
+}
 
-    if( $id )
-        $res = $res . " id=\"$id\"";
+function get_html_standards( $name=NULL, $class=NULL, $id=NULL )
+{
+    $res = __get_html_opt_value( 'name', $name ) .
+        __get_html_opt_value( 'class', $class ) .
+        __get_html_opt_value( 'id', $id );
+
+    return $res;
+}
+
+function get_html_value( $value=NULL )
+{
+    $res = __get_html_opt_value( 'value', $value );
 
     return $res;
 }
@@ -46,18 +56,26 @@ function get_div( $class, $id, $str )
 
 function get_html_label( $str, $name=NULL, $class=NULL, $id=NULL, $for_elem=NULL )
 {
-    return '<label' . get_html_standards( $name, $class, $id ) . ( $for_elem ? " for=\"$for_elem\"" : "" ) . '>' .$str . '</label>' . "\n";
+    return '<label' . get_html_standards( $name, $class, $id ) . __get_html_opt_value( 'for', $for_elem ) . '>' .$str . '</label>' . "\n";
 }
 
 function get_html_input_text( $name=NULL, $class=NULL, $id=NULL, $value=NULL, $placeholder=NULL )
 {
-    return '<input type="text"' . get_html_standards( $name, $class, $id ) . ( $value ? " value=\"$value\"" : "" ) .
-        ( $placeholder ? " placeholder=\"$placeholder\"" : "" ) . '/>' . "\n";
+    return '<input type="text"' . get_html_standards( $name, $class, $id ) . get_html_value( $value ) .
+        __get_html_opt_value( 'placeholder', $placeholder ) . '/>' . "\n";
 }
 
 function get_html_input_submit( $name=NULL, $class=NULL, $id=NULL, $value=NULL )
 {
-    return '<input type="submit"' . get_html_standards( $name, $class, $id ) . ( $value ? " value=\"$value\"" : "" ) . '/>' . "\n";
+    return '<input type="submit"' . get_html_standards( $name, $class, $id ) . get_html_value( $value ) . '/>' . "\n";
+}
+
+function get_html_input_radio( $name=NULL, $class=NULL, $id=NULL, $value=NULL, $is_checked=false, $is_enabled=true )
+{
+    return '<input type="radio"' . get_html_standards( $name, $class, $id ) . get_html_value( $value ) . 
+        ( $is_checked ?  ' checked="checked"' : '' ) .
+        ( $is_enabled ?  '' : ' disabled="disabled"' ) .
+        '/>' . "\n";
 }
 
 function get_html_form( $name, $class, $id, $method, $action=NULL, $body=NULL )
