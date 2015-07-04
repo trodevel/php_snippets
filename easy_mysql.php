@@ -1,6 +1,6 @@
 <?php
 
-// $Revision: 1840 $ $Date:: 2015-06-11 #$ $Author: serge $
+// $Revision: 2062 $ $Date:: 2015-07-03 #$ $Author: serge $
 
 function easy_mysql_connect__( $server, $username, $password, $database, & $connection, & $error )
 {
@@ -24,6 +24,24 @@ function easy_mysql_connect__( $server, $username, $password, $database, & $conn
     return true;
 }
 
+function easy_mysql_query( $server, $username, $password, $database, $query, & $error )
+{
+    $connection = null;
+
+    if( !easy_mysql_connect__( $server, $username, $password, $database, $connection, $error ) )
+    {
+        return false;
+    }
+
+    $res    = mysql_query( $query, $connection );
+
+    mysql_close( $connection );
+
+    if( $res )
+        return true;
+
+    return false;
+}
 function easy_mysql_fetch_assoc( $server, $username, $password, $database, $query, & $res, & $error )
 {
     $connection = null;
