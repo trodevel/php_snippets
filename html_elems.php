@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2849 $ $Date:: 2015-11-25 #$ $Author: serge $
+// $Revision: 2856 $ $Date:: 2015-11-27 #$ $Author: serge $
 
 function __get_html_opt_value( $key, $value=NULL )
 {
@@ -73,6 +73,14 @@ function get_html_input_submit( $name=NULL, $class=NULL, $id=NULL, $value=NULL )
 function get_html_input_radio( $name=NULL, $class=NULL, $id=NULL, $value=NULL, $is_checked=false, $is_enabled=true )
 {
     return '<input type="radio"' . get_html_standards( $name, $class, $id ) . get_html_value( $value ) . 
+        ( $is_checked ?  ' checked="checked"' : '' ) .
+        ( $is_enabled ?  '' : ' disabled="disabled"' ) .
+        '/>' . "\n";
+}
+
+function get_html_input_checkbox( $name=NULL, $class=NULL, $id=NULL, $value=NULL, $is_checked=false, $is_enabled=true )
+{
+    return '<input type="checkbox"' . get_html_standards( $name, $class, $id ) . get_html_value( $value ) . 
         ( $is_checked ?  ' checked="checked"' : '' ) .
         ( $is_enabled ?  '' : ' disabled="disabled"' ) .
         '/>' . "\n";
@@ -141,7 +149,7 @@ function get_html_table_row_data( $values )
 
 function get_html_table( $name, $class, $id, $options=NULL, $body=NULL )
 {
-    return '<table' . get_html_standards( $name, $class, $id ) . ( $options ?  ' $options ' : '' ) . '>' . "\n" . ( $body ? " $body" : '' ) . '</table>' . "\n";
+    return '<table' . get_html_standards( $name, $class, $id ) . ( $options ?  " $options " : '' ) . '>' . "\n" . ( $body ? " $body" : '' ) . '</table>' . "\n";
 }
 
 function get_html_select( $name, $values, $selected )
