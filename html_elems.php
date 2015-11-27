@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2033 $ $Date:: 2015-06-30 #$ $Author: serge $
+// $Revision: 2849 $ $Date:: 2015-11-25 #$ $Author: serge $
 
 function __get_html_opt_value( $key, $value=NULL )
 {
@@ -81,6 +81,67 @@ function get_html_input_radio( $name=NULL, $class=NULL, $id=NULL, $value=NULL, $
 function get_html_form( $name, $class, $id, $method, $action=NULL, $body=NULL )
 {
     return '<form' . get_html_standards( $name, $class, $id ) . ' method="' . $method . '" action="' . $action . '">' . "\n" . $body . '</form>' . "\n";
+}
+
+function get_html_table_th( $body )
+{
+    $res = '<th>' . $body . '</th>';
+
+    return $res;
+}
+
+function get_html_table_td( $body )
+{
+    $res = '<td>' . $body . '</td>';
+
+    return $res;
+}
+
+function get_html_table_tr( $body )
+{
+    $res = '<tr>' . $body . '</tr>';
+
+    return $res;
+}
+
+function get_html_table_elems( $values, $is_header = true )
+{
+    $res = '';
+
+    foreach( $values as $x )
+    {
+        if( $is_header )
+            $res = $res . get_html_table_th( $x );
+        else
+            $res = $res . get_html_table_td( $x );
+    }
+
+    return $res;
+}
+
+function get_html_table_header_elems( $values )
+{
+    return get_html_table_elems( $values, true );
+}
+
+function get_html_table_data_elems( $values )
+{
+    return get_html_table_elems( $values, false );
+}
+
+function get_html_table_row_header( $values )
+{
+    return get_html_table_tr( get_html_table_header_elems( $values ) );
+}
+
+function get_html_table_row_data( $values )
+{
+    return get_html_table_tr( get_html_table_data_elems( $values ) );
+}
+
+function get_html_table( $name, $class, $id, $options=NULL, $body=NULL )
+{
+    return '<table' . get_html_standards( $name, $class, $id ) . ( $options ?  ' $options ' : '' ) . '>' . "\n" . ( $body ? " $body" : '' ) . '</table>' . "\n";
 }
 
 function get_html_select( $name, $values, $selected )
