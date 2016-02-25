@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2856 $ $Date:: 2015-11-27 #$ $Author: serge $
+// $Revision: 2867 $ $Date:: 2015-11-30 #$ $Author: serge $
 
 function __get_html_opt_value( $key, $value=NULL )
 {

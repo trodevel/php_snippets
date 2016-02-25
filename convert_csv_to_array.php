@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2735 $ $Date:: 2015-10-20 #$ $Author: serge $
+// $Revision: 2867 $ $Date:: 2015-11-30 #$ $Author: serge $
 
 if( !defined( 'CONVERT_CSV_TO_ARRAY' ) )
 {

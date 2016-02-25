@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2745 $ $Date:: 2015-10-23 #$ $Author: serge $
+// $Revision: 2867 $ $Date:: 2015-11-30 #$ $Author: serge $
 
 function epoch_to_date( $epoch )
 {

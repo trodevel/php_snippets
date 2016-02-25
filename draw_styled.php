@@ -21,9 +21,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2048 $ $Date:: 2015-07-01 #$ $Author: serge $
+// $Revision: 3470 $ $Date:: 2016-02-24 #$ $Author: serge $
 
-require 'html_elems.php';      // get_div()
+require_once 'html_elems.php';      // get_div()
 
 function get_styled_div( $str, $class=NULL, $id=NULL )
 {
