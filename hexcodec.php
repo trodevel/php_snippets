@@ -1,6 +1,6 @@
 <?php
 
-// $Revision: 1829 $ $Date:: 2015-06-10 #$ $Author: serge $
+// $Revision: 5995 $ $Date:: 2017-03-13 #$ $Author: serge $
 
     function hex2str( $hex )
     {
@@ -9,7 +9,8 @@
 
     function str2hex( $str )
     {
-        return array_shift( unpack('H*', $str) );
+        $inter =  unpack('H*', $str);
+        return array_shift( $inter );
     }
 
 ?>
