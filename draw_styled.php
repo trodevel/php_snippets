@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 3470 $ $Date:: 2016-02-24 #$ $Author: serge $
+// $Revision: 3501 $ $Date:: 2016-02-29 #$ $Author: serge $
 
 require_once 'html_elems.php';      // get_div()
 
