@@ -1,10 +1,10 @@
 <?php
 
-// $Revision: 13110 $ $Date:: 2020-05-21 #$ $Author: serge $
+// $Revision: 13112 $ $Date:: 2020-05-21 #$ $Author: serge $
 
 namespace utils\nonascii_hex_codec;
 
-require_once 'hexcodec.php';
+require_once 'hex_codec.php';
 
 function decode( & $str )
 {
