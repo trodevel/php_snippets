@@ -1,15 +1,15 @@
 <?php
 
-// $Revision: 13112 $ $Date:: 2020-05-21 #$ $Author: serge $
+// $Revision: 13113 $ $Date:: 2020-05-21 #$ $Author: serge $
 
 namespace utils\hex_codec;
 
-    function encode( $hex )
+    function decode( $hex )
     {
         return pack('H*', $hex);
     }
 
-    function decode( $str )
+    function encode( $str )
     {
         $inter =  unpack('H*', $str);
         return array_shift( $inter );
