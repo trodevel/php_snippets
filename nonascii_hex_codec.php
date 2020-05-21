@@ -1,6 +1,6 @@
 <?php
 
-// $Revision: 12435 $ $Date:: 2019-12-07 #$ $Author: serge $
+// $Revision: 13110 $ $Date:: 2020-05-21 #$ $Author: serge $
 
 namespace utils\nonascii_hex_codec;
 
@@ -29,7 +29,7 @@ function decode( & $str )
 
         if( $c == '=' &&  ( $i + 3 <= $size ) )
         {
-            $res .= \hex2str( substr( $str, $i + 1, 2 ) );
+            $res .= \utils\hex_codec\decode( substr( $str, $i + 1, 2 ) );
             $i += 2;
         }
         else
@@ -58,7 +58,7 @@ function encode( & $str )
 
         if( $code < 33 || $code > 126 || $c == '=' )
         {
-            $res .= "=" . \str2hex( $c );
+            $res .= "=" . \utils\hex_codec\encode( $c );
         }
         else
             $res .= $c;
