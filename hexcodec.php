@@ -1,13 +1,15 @@
 <?php
 
-// $Revision: 13107 $ $Date:: 2020-05-21 #$ $Author: serge $
+// $Revision: 13109 $ $Date:: 2020-05-21 #$ $Author: serge $
 
-    function hex2str( $hex )
+namespace utils\hex_codec;
+
+    function encode( $hex )
     {
         return pack('H*', $hex);
     }
 
-    function str2hex( $str )
+    function decode( $str )
     {
         $inter =  unpack('H*', $str);
         return array_shift( $inter );
@@ -21,7 +23,7 @@ function has_non_ascii( $str )
 
         $code = ord( $c );
 
-        if( $code < 33 || $code > 126 )
+        if( $code < 33 || $code > 126 || $code == '=' || $code == '$' )
         {
             return true;
         }
