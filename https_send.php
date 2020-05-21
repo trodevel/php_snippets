@@ -1,6 +1,6 @@
 <?php
 
-// $Revision: 9820 $ $Date:: 2018-10-10 #$ $Author: serge $
+// $Revision: 12435 $ $Date:: 2019-12-07 #$ $Author: serge $
 
 function https_post( $host, $port, $msg, & $res, & $error_msg )
 {

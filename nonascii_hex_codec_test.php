@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 6542 $ $Date:: 2017-04-07 #$ $Author: serge $
+// $Revision: 12435 $ $Date:: 2019-12-07 #$ $Author: serge $
 
 require 'nonascii_hex_codec.php';
 

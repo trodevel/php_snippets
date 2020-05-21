@@ -1,6 +1,6 @@
 <?php
 
-// $Revision: 6542 $ $Date:: 2017-04-07 #$ $Author: serge $
+// $Revision: 12435 $ $Date:: 2019-12-07 #$ $Author: serge $
 
 namespace utils\nonascii_hex_codec;
 
