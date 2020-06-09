@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12435 $ $Date:: 2019-12-07 #$ $Author: serge $
+// $Revision: 13217 $ $Date:: 2020-06-09 #$ $Author: serge $
 
 require 'nonascii_hex_codec.php';
 
@@ -42,5 +42,7 @@ echo "6: " . test( "= " ) . "\n";
 $s = "=D0=92=D1=81=D1=82=D1=80=D0=B5=D1=87=D0=B0=20=D1=81=20=D0=B4=D0=BE=D0=BA=D1=82=D0=BE=D1=80=D0=BE=D0=BC";
 echo "7: " . \utils\nonascii_hex_codec\decode( $s ) . "\n";
 
+echo "8: " . test( "& " ) . "\n";
+echo "9: " . test( "&value=" ) . "\n";
 ?>
 
