@@ -1,6 +1,6 @@
 <?php
 
-// $Revision: 13113 $ $Date:: 2020-05-21 #$ $Author: serge $
+// $Revision: 13215 $ $Date:: 2020-06-09 #$ $Author: serge $
 
 namespace utils\hex_codec;
 
@@ -23,7 +23,7 @@ function has_non_ascii( $str )
 
         $code = ord( $c );
 
-        if( $code < 33 || $code > 126 || $code == '=' || $code == '$' )
+        if( $code < 33 || $code > 126 || $c == '=' || $c == '&' )
         {
             return true;
         }
