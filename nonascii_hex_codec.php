@@ -1,6 +1,6 @@
 <?php
 
-// $Revision: 13112 $ $Date:: 2020-05-21 #$ $Author: serge $
+// $Revision: 13216 $ $Date:: 2020-06-09 #$ $Author: serge $
 
 namespace utils\nonascii_hex_codec;
 
@@ -56,7 +56,7 @@ function encode( & $str )
 
         $code = ord( $c );
 
-        if( $code < 33 || $code > 126 || $c == '=' )
+        if( $code < 33 || $code > 126 || $c == '=' || $c == '&' )
         {
             $res .= "=" . \utils\hex_codec\encode( $c );
         }
